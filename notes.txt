@@ -27,3 +27,15 @@ Binding inline styles:
 
 Array style object:
 last style object overrides the previous style object.
+
+
+vue does two-way data-binding.
+v-on:click.prevent.stop means prevent default and stop computation.
+
+Instead of v-on, we can simply use @
+Instead of v-bind, we can use :
+
+in vue instance, data is only for variables, methods is for functions, filters is for object of functions, computed is also
+like filters except that in any method under computed, you wont need to pass in the param.
+
+

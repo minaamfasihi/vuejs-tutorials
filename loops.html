@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="styles.css" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div id="root">
+        {{ kittifyName }}
+        <!-- <input v-model="newDog" v-on:keyup.enter="addDog"> -->
+        <input v-model="newDog" @keyup.enter="addDog">
+        <!-- <button v-on:click="addDog"> -->
+        <button @click="addDog">
+            + ADD
+        </button>
+        <ul>
+            <li v-for="cat in cats">
+                {{ cat }}
+            </li>
+
+            <li v-for="dog in dogs">
+                {{ dog.name | capitalize | kittify }}
+            </li>
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#root",
+            data: {
+                cats: [
+                    'kitkat',
+                    'fishie'
+                ],
+                dogs: [
+                    { name: 'german shepherd' },
+                    { name: 'hush puppy' }
+                ],
+                newDog: ''
+            },
+            methods: {
+                addDog: function() {
+                    this.dogs.push({ name: this.newDog });
+                    this.newDog = ''
+                }
+            },
+            filters: {
+                capitalize: function(value) {
+                    return value.toUpperCase();
+                },
+                kittify: function(value) {
+                    return value + 'y';
+                }
+            },
+            computed: {
+                kittifyName: function() {
+                    if (this.newDog.length > 1) {
+                        return this.newDog + 'y';
+                    }
+                }
+            }
+        });
+    </script>
+  </body>
+</html>

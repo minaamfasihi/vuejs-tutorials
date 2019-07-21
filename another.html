@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="styles.css" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div id="root">
+        <h1>{{ greeting }}</h1>
+        <input v-model="greeting" />
+    </div>
+
+    <div id="root2">
+        <!-- These if/else ifs dont render anything to the DOM -->
+        <div v-if="count === 1">
+            Green
+        </div>
+        <div v-else-if="count === 2">
+            Orange
+        </div>
+        <div v-else>
+            Red
+        </div>
+
+        <!-- these v-show render the element to DOM with display none set. -->
+        <div v-show="count === 1">
+            Green
+        </div>
+    </div>
+
+    <div id="root3">
+        Sign up
+        <br>
+        <!-- below code will print whatever you type in the email field -->
+        <p v-text="email"></p> 
+        <!-- <input v-model="email" :class="{red: email.length < 2}"> -->
+        <input v-model="email" :class="[email.length < 2 ? 'red' : 'green']">
+        <br>
+        <!-- there is a shortcut for v-bind, that is : -->
+        <!-- <button onclick="alert('signed up')" v-bind:disabled="email.length < 2">Submit</button> -->
+        <button onclick="alert('signed up')" :disabled="email.length < 2">Submit</button>
+        <!-- the above two statements are equivalent -->
+    </div>
+    
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#root",
+            data: {
+                greeting: "Hello Vue"
+            }
+        })
+
+        var vm2 = new Vue({
+            el: "#root2",
+            data: {
+                count: 2
+            }
+        })
+
+        var vm3 = new Vue({
+            el: "#root3",
+            data: {
+                email: ''
+            }
+        })
+    </script>
+  </body>
+</html>
