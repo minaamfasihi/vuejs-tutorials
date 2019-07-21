@@ -29,8 +29,31 @@
     </div>
 
     <div id="my-app">
-      <h1>Hello munnu</h1>
+      <h1>{{ greet }} {{ name }}</h1>
+      <div v-text="appName"></div>
+
+      <div v-once>
+        <h1>{{ appName }}</h1>
+        <h1 v-text="appName"></h1>
+        <h1 v-once>{{ appName }}</h1>
+        <h1 v-text="appName" v-once></h1>
+      </div>
+
+      <div>
+        <p v-html="brandName"></p>
+
+        <h1 v-bind:id="myId">Yayyy</h1>
+        <button v-bind:disabled="isDisabled">Button</button>
+      </div>
+
+      <div>
+        <p v-bind:style="{color: highlightColor, 'font-size': headerSize + 'px', padding: '20px'}">Inline</p>
+        <h1 v-bind:style="headerStyleObject">Header Style Object</h1>
+        <h1 v-bind:style="[baseStyleObject, successStyleObject]">Array Style Object</h1>
+      </div>
     </div>
+
+    
 
     <script type="text/javascript">
       var app = new Vue({
@@ -67,8 +90,39 @@
 
       var vm = new Vue({
         el: "#my-app",
-        data: 
+        data: {
+          name: 'Munnu',
+          age: 0,
+          greet: 'Hello',
+          appName: 'GTA San Andreas',
+          brandName: '<b>My Company</b>',
+          myId: 'uniqid',
+          isDisabled: true,
+          highlightColor: "Orange",
+          headerSize: 50,
+          headerStyleObject: {
+            color: "Orange",
+            fontSize: "50px",
+            padding: "20px"
+          },
+          baseStyleObject: {
+            fontSize: "50px",
+            padding: "10px"
+          },
+          successStyleObject: {
+            color: "green",
+            backgroundColor: "lightgreen",
+            border: "1px solid green"
+          }
+        }
       });
+
+      // var vm2 = new Vue({
+      //   el: "#my-app",
+      //   data: {
+      //     highlightColor: "Orange"
+      //   }
+      // });
     </script>
   </body>
 </html>

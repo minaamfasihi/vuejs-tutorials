@@ -1,0 +1,29 @@
+Vue instance takes in a javascript object.
+When you bind an element to Vue instance, then Vue takes over the control of that element from DOM and Vue renders
+that element on the browser instead of the usual flow.
+
+data property: a JS object. consists of name value pairs.
+name cant begin with $ or _ (these two symbols are used internally by VueJS)
+data properties can only be modified, cannot add or remove existing property during runtime.
+so data is like a schema or a model for your vue instance.
+
+for binding, we use v-text directive.
+v-text directive replaces the entire text content so cant be used to append data.
+
+One time binding:
+when we dont want the data to change once it's been rendered.
+it improves performance. it doesnt listen for the change events.
+
+v-once directive, if applied to parent, applies to all of its children automatically.
+
+binding to attributes:
+id, class, style, disabled and so on.
+cannot use moustache syntax.
+v-bind directive.
+
+Binding inline styles:
+1) Object syntax
+2) Array syntax
+
+Array style object:
+last style object overrides the previous style object.
