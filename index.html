@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div class="" id="app">
+      {{ message }}
+    </div>
+
+    <div class="" id="app2">
+      <span v-bind:title="message">
+        Hover yoru mouse over me.
+      </span>
+    </div>
+
+    <div class="" id="app3">
+      <span v-if="seen">
+        Now you see me
+      </span>
+    </div>
+
+    <div class="" id="app4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+
+    <div id="my-app">
+      <h1>Hello munnu</h1>
+    </div>
+
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: 'Hello Vue'
+        }
+      })
+
+      var app2 = new Vue({
+        el: "#app2",
+        data: {
+          message: 'You loaded this page on ' + new Date().toLocaleString()
+        }
+      })
+
+      var app3 = new Vue({
+        el: "#app3",
+        data: {
+          seen: true
+        }
+      })
+
+      var app4 = new Vue({
+        el: "#app4",
+        data: {
+          todos: [
+            { text: 'Learn JS' },
+            { text: 'Learn Vue' },
+            { text: 'Build something awesome.' }
+          ]
+        }
+      })
+
+      var vm = new Vue({
+        el: "#my-app",
+        data: 
+      });
+    </script>
+  </body>
+</html>
